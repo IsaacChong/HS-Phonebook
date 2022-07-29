@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import AddNewPerson from "./components/Addnewperson";
+import Filter from "./components/Filter";
+import List from "./components/List";
 
-function App() {
+const App = () => {
+  const [persons, setPersons] = useState([
+    { id: 1, name: "Arto", number: 43 }, 
+    { id: 2, name: "Bob", number: 32 }, 
+    { id: 3, name: "Sam", number: 98 }, 
+    { id: 4, name: "Gamgee", number: 13 }
+  ]);
+  
+  const [filterName, setFilterName] = useState("")
+  const [filteredList, setFilteredList] = useState([])
+  
+  useEffect(() => {
+    setFilteredList(persons.filter((person) => person.name.toUpperCase() === filterName.toUpperCase()))
+  },[filterName])
+
+  const nameFilter = (event) => {
+    setFilterName(event.target.value);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h2>Phonebook</h2>
+      <AddNewPerson persons={persons} setPersons={setPersons}/>
+      <List filteredList={filteredList} persons={persons}/>
+      <Filter nameFilter={nameFilter}/>
+    </>
   );
-}
+};
 
 export default App;
