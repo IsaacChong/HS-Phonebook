@@ -1,20 +1,34 @@
+import Person from "./Person";
 
 const List = (props) => {
+  const { filteredList, persons, getPersons } = props;
 
-    const {filteredList, persons} = props
-
-    return (
-        <>
-         <h4>List of numbers</h4>
-          <ol>
-           {filteredList.length > 0 ? filteredList.map((person) => (
-            <li key={person.id}>{person.name} {person.number}</li>
-            )) : persons.map((person) => (
-            <li key={person.id}>{person.name} {person.number}</li>
+  return (
+    <>
+      <h4>List of numbers</h4>
+      <ol>
+        {filteredList.length > 0
+          ? filteredList.map((person) => (
+              <Person
+                key={person.id}
+                name={person.name}
+                number={person.number}
+                getPersons={getPersons}
+                id={person.id}
+              />
+            ))
+          : persons.map((person) => (
+              <Person
+                key={person.id}
+                name={person.name}
+                number={person.number}
+                getPersons={getPersons}
+                id={person.id}
+              />
             ))}
-          </ol>
-        </>
-    )
-}
+      </ol>
+    </>
+  );
+};
 
-export default List
+export default List;
