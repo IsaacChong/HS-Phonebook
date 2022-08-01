@@ -7,8 +7,6 @@ const Person = (props) => {
     personService.deletePerson(id).then(getPersons);
   };
 
-  //   Figure out why list is not updating when person is removed
-
   return (
     <li>
       <h4>{name}</h4>
