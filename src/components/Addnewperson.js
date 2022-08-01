@@ -25,8 +25,19 @@ const AddNewPerson = (props) => {
     const checkForName = (person) => person.name === newPerson.name;
     const checkForNum = (person) => person.number === newPerson.number;
 
+    
+    
     if (persons.some(checkForName)) {
-      alert(`${newPerson.name} is already in the book`);
+      const personExists = persons.find((person) => person.name === newPerson.name)
+      console.log(personExists)
+    }
+
+    if (persons.some(checkForName)) {
+      let cfmWindow = window.confirm(`${newPerson.name} is already in the book. Do you want to replace this person's number?`);
+      if (cfmWindow) {
+        let personExists = persons.find((person) => person.name === newPerson.name);
+        console.log(personExists)
+      }  
     } else if (persons.some(checkForNum)) {
       alert(`${newPerson.number} is already in the book`);
     } else {

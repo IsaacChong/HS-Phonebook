@@ -1,39 +1,24 @@
 {
   "persons": [
     {
-      "name": "Mary Poppendieck",
-      "number": "39-23-6423122",
-      "id": 4
+      "id": 1,
+      "name": "Bob",
+      "number": "24214"
     },
     {
-      "id": 5,
-      "name": "bob",
-      "number": "52352"
-    },
-    {
-      "id": 6,
+      "id": 2,
       "name": "Loid",
-      "number": "3532532"
+      "number": "25253"
     },
     {
-      "id": 7,
-      "name": "Arthur",
-      "number": "23523"
+      "id": 3,
+      "name": "Kyle",
+      "number": "2421"
     },
     {
-      "id": 8,
-      "name": "Klingon",
-      "number": "352"
-    },
-    {
-      "id": 9,
-      "name": "bdsg",
-      "number": "63463463"
-    },
-    {
-      "id": 10,
-      "name": "Jay",
-      "number": "24252"
+      "id": 4,
+      "name": "bob",
+      "number": 0
     }
   ]
 }
