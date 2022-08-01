@@ -2,7 +2,7 @@ import { useState } from "react";
 import personService from "../services/persons";
 
 const AddNewPerson = (props) => {
-  const { persons, setPersons } = props;
+  const { persons, setPersons, showNotif } = props;
 
   const [newName, setNewName] = useState("");
   const [newNum, setNewNum] = useState(0);
@@ -49,6 +49,7 @@ const AddNewPerson = (props) => {
       personService.addPerson(newPerson).then((res) => {
         setPersons(persons.concat(res.data));
       });
+      showNotif();
       setNewName("");
       setNewNum(0);
     }

@@ -3,6 +3,7 @@ import AddNewPerson from "./components/Addnewperson";
 import Filter from "./components/Filter";
 import List from "./components/List";
 import personService from "./services/persons";
+import Notification from "./components/Notification";
 
 const App = () => {
   // [
@@ -14,6 +15,17 @@ const App = () => {
   const [persons, setPersons] = useState([]);
   const [filterName, setFilterName] = useState("");
   const [filteredList, setFilteredList] = useState([]);
+  const [displayNotification, setDisplayNotification] = useState(false);
+
+  const showNotif = () => {
+    console.log("Crap");
+    setDisplayNotification((displayNotification) => !displayNotification);
+    console.log(displayNotification);
+    // setTimeout(
+    //   setDisplayNotification((displayNotification) => !displayNotification),
+    //   5000
+    // );
+  };
 
   const getPersons = () => {
     personService.getAllPersons().then((res) => setPersons(res.data));
@@ -35,8 +47,13 @@ const App = () => {
 
   return (
     <>
+      {displayNotification ? <Notification /> : null}
       <h2>Phonebook</h2>
-      <AddNewPerson persons={persons} setPersons={setPersons} />
+      <AddNewPerson
+        persons={persons}
+        setPersons={setPersons}
+        showNotif={showNotif}
+      />
       <List
         filteredList={filteredList}
         persons={persons}

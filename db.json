@@ -2,28 +2,13 @@
   "persons": [
     {
       "id": 1,
-      "name": "Bob",
-      "number": "2131"
+      "name": "Jake",
+      "number": "232"
     },
     {
       "id": 2,
-      "name": "Loid",
-      "number": "25253"
-    },
-    {
-      "id": 3,
-      "name": "Kyle",
-      "number": "2421"
-    },
-    {
-      "id": 4,
-      "name": "bob",
-      "number": 0
-    },
-    {
-      "id": 5,
-      "name": "Arty",
-      "number": "3252"
+      "name": "Bob",
+      "number": "2521"
     }
   ]
 }
