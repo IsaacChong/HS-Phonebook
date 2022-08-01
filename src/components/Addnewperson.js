@@ -16,7 +16,6 @@ const AddNewPerson = (props) => {
 
   const addNewPerson = (event) => {
     event.preventDefault();
-    // let numType = parseInt(newNum);
     const newPerson = {
       id: persons.length + 1,
       name: newName,
@@ -25,8 +24,25 @@ const AddNewPerson = (props) => {
     const checkForName = (person) => person.name === newPerson.name;
     const checkForNum = (person) => person.number === newPerson.number;
 
+    // Updates number of existing person
     if (persons.some(checkForName)) {
-      alert(`${newPerson.name} is already in the book`);
+      let cfmWindow = window.confirm(
+        `${newPerson.name} is already in the book. Do you want to replace this person's number?`
+      );
+      if (cfmWindow) {
+        const personExists = persons.find(
+          (person) => person.name === newPerson.name
+        );
+        personExists.number = newNum;
+        personService.changeNum(personExists.id, personExists).then((res) => {
+          let updatedNumList = persons.map((person) => {
+            return res.id === person.id ? res : person;
+          });
+          setPersons(updatedNumList);
+          setNewName("");
+          setNewNum(0);
+        });
+      }
     } else if (persons.some(checkForNum)) {
       alert(`${newPerson.number} is already in the book`);
     } else {

@@ -4,7 +4,12 @@ const Person = (props) => {
   const { name, number, getPersons, id } = props;
 
   const removePerson = () => {
-    personService.deletePerson(id).then(getPersons);
+    const checkDel = window.confirm(
+      "Are you sure you want to delete this person?"
+    );
+    if (checkDel) {
+      personService.deletePerson(id).then(getPersons);
+    }
   };
 
   return (
