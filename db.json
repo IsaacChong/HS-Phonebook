@@ -2,13 +2,13 @@
   "persons": [
     {
       "id": 1,
-      "name": "Jake",
-      "number": "232"
+      "name": "Loid",
+      "number": 0
     },
     {
       "id": 2,
-      "name": "Bob",
-      "number": "2521"
+      "name": "Jane",
+      "number": "6464"
     }
   ]
 }

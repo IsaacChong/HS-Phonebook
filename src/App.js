@@ -16,15 +16,15 @@ const App = () => {
   const [filterName, setFilterName] = useState("");
   const [filteredList, setFilteredList] = useState([]);
   const [displayNotification, setDisplayNotification] = useState(false);
+  const [noteStatus, setNoteStatus] = useState("");
 
-  const showNotif = () => {
-    console.log("Crap");
+  const showNotif = (noteStat) => {
     setDisplayNotification((displayNotification) => !displayNotification);
-    console.log(displayNotification);
-    // setTimeout(
-    //   setDisplayNotification((displayNotification) => !displayNotification),
-    //   5000
-    // );
+    // Display notification for 5 seconds
+    setNoteStatus(noteStat);
+    setTimeout(() => {
+      setDisplayNotification((displayNotification) => !displayNotification);
+    }, 5000);
   };
 
   const getPersons = () => {
@@ -47,7 +47,7 @@ const App = () => {
 
   return (
     <>
-      {displayNotification ? <Notification /> : null}
+      {displayNotification ? <Notification noteStatus={noteStatus} /> : null}
       <h2>Phonebook</h2>
       <AddNewPerson
         persons={persons}

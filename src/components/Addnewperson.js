@@ -39,6 +39,7 @@ const AddNewPerson = (props) => {
             return res.id === person.id ? res : person;
           });
           setPersons(updatedNumList);
+          showNotif("updated");
           setNewName("");
           setNewNum(0);
         });
@@ -49,7 +50,7 @@ const AddNewPerson = (props) => {
       personService.addPerson(newPerson).then((res) => {
         setPersons(persons.concat(res.data));
       });
-      showNotif();
+      showNotif("added");
       setNewName("");
       setNewNum(0);
     }
