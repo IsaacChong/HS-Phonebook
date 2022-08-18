@@ -3,6 +3,8 @@ import Person from "./Person";
 const List = (props) => {
   const { filteredList, persons, getPersons } = props;
 
+  // Create a function to set the "filteredList" and "persons" states when a new person is added
+
   return (
     <>
       <h4>List of numbers</h4>
