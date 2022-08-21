@@ -48,8 +48,9 @@ const AddNewPerson = (props) => {
       alert(`${newPerson.number} is already in the book`);
     } else {
       personService.addPerson(newPerson).then((res) => {
-        setPersons(persons.concat(res.data));
+        setPersons(res.data);
       });
+      
       showNotif("added");
       setNewName("");
       setNewNum(0);
