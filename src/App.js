@@ -43,6 +43,7 @@ const App = () => {
 
   const nameFilter = (event) => {
     setFilterName(event.target.value);
+    console.log(filterName);
   };
 
   return (

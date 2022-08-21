@@ -1,6 +1,9 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:3001/api/persons";
+// Relative path for deployed app
+const baseUrl = "/api/persons";
+// Path for frontend not in same location as backend
+// const baseUrl = "http://phonebook-3235326.herokuapp.com/api/persons";
 
 const addPerson = (newObject) => {
   return axios.post(baseUrl, newObject);
@@ -15,13 +18,13 @@ const deletePerson = (id) => {
 };
 
 const changeNum = (id, updatedObject) => {
-  const request = axios.put(baseUrl + `/${id}`, updatedObject)
-  return request.then(res => res.data)
-}
+  const request = axios.put(baseUrl + `/${id}`, updatedObject);
+  return request.then((res) => res.data);
+};
 
 export default {
   addPerson: addPerson,
   getAllPersons: getAllPersons,
   deletePerson: deletePerson,
-  changeNum: changeNum
+  changeNum: changeNum,
 };
